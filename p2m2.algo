@@ -1,0 +1,46 @@
+ALGORITHM sum_distinct2
+VAR
+    set1 : ARRAY_OF INTEGER[];
+    set2 : ARRAY_OF INTEGER[];
+    htb : HASH_TABLE<INTEGER,INTEGER>
+    i,j,sum,count : INTEGER;
+BEGIN
+    whrite ("what is your set1 length : ")
+    read (n1);
+    whrite ("what is your set2 length : ")
+    read (n2);
+    j:=0;
+    i:=0;
+    WHILE(i<=n1 And j<=n2) DO 
+        read(set1[i]); 
+        i:=i+1;
+        read(set2[j]); 
+        j:=j+1;
+    END_WHILE 
+    count := 1;
+    sum :=0;
+    FOR i FROM 0 TO set1.length-1 STEP 1  DO
+        FOR j FROM 0 TO set2.length-1 STEP 1  DO
+            IF (set1[i]==set2[i]) THEN
+                htb.insert(set1[i],count+1);
+            ELSE
+                htb.insert(set1[i],count);
+                htb.insert(set2[j],count)
+            END_IF
+
+        END_FOR
+    END_FOR
+    FOR i FROM 0 TO set1.length-1 STEP 1  DO
+        FOR j FROM 0 TO set2.length-1 STEP 1  DO
+           WHILE (htb.lookup(set1[i])=TRUE Or htb.lookup(set2[j])=TRUE) DO
+               IF (htb.get(set1[i])<>1) THEN
+               sum:=sum+set1[i];
+               END_IF
+               IF (htb.get(set2[j])<>1) THEN
+               sum:=sum+set2[j];
+               END_IF
+           END_WHILE
+        END_FOR
+    END_FOR
+    write(sum);
+END
