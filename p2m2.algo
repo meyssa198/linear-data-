@@ -21,7 +21,7 @@ BEGIN
     sum :=0;
     FOR i FROM 0 TO set1.length-1 STEP 1  DO
         FOR j FROM 0 TO set2.length-1 STEP 1  DO
-            IF (set1[i]==set2[i]) THEN
+            IF (set1[i]=set2[i]) THEN
                 htb.insert(set1[i],count+1);
             ELSE
                 htb.insert(set1[i],count);
@@ -42,5 +42,5 @@ BEGIN
            END_WHILE
         END_FOR
     END_FOR
-    write(sum);
+    write("som = ",sum*2);
 END

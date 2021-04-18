@@ -23,7 +23,7 @@ BEGIN
         WHILE (set1[i]<>set2[x] Or x<=set2.length-1) DO 
             x:=x+1;
         END_WHILE
-        IF(x==set2.length-1) THEN 
+        IF(x=set2.length-1) THEN 
         sum := sum + set1[i];
         END_IF
 
@@ -33,7 +33,7 @@ BEGIN
         WHILE (set2[j]<>set1[y] Or y<=set1.length-1) DO 
             y:=y+1;
         END_WHILE
-        IF(y==set1.length-1) THEN 
+        IF(y=set1.length-1) THEN 
         sum := sum + set2[j];
         END_IF
 
