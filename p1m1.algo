@@ -20,7 +20,7 @@ BEGIN
     sum :=0;
     FOR i FROM 0 TO set1.length-1 STEP 1  DO
         x:=0;
-        WHILE (set1[i]<>set2[x] Or x<=set2.length-1) DO 
+        WHILE (set1[i]<>set2[x] And x<=set2.length-1) DO 
             x:=x+1;
         END_WHILE
         IF(x=set2.length-1) THEN 
@@ -30,7 +30,7 @@ BEGIN
     END_FOR
     FOR j FROM 0 TO set2.length-1 STEP 1  DO
         y:=0;
-        WHILE (set2[j]<>set1[y] Or y<=set1.length-1) DO 
+        WHILE (set2[j]<>set1[y] And y<=set1.length-1) DO 
             y:=y+1;
         END_WHILE
         IF(y=set1.length-1) THEN 
